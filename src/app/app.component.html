@@ -1,0 +1,39 @@
+<div *ngIf="!weather">
+<h2>Ingrese los valores para obtener la temperatura actual</h2>
+</div>
+<hr>
+<div *ngIf="weather">
+  <h1 >  Clima de {{weather.name}}</h1><hr>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card card-body">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRnjBy0TAabcvl4ANIglacZcsIkI7xKGeUKaw&usqp=CAU"
+          width="300px" class="mx-auto img-fluid">
+        <br>
+        <form (submit)="submitLocation(nombreCiudad, codigoCiudad)">
+          <div class="form-group">
+            <input  type="text" class="form-control" placeholder="Ciudad" #nombreCiudad>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Codigo Pais" #codigoCiudad>
+          </div>
+            <button class="btn btn-primary btn-block mt-2">OBTENER CLIMA</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div *ngIf="weather" class="card card-body">
+          <p>Temperatura actual: <span>{{weather.main.temp}}º</span> </p> 
+          <p>Temperatuta maxima: <span>{{weather.main.temp_max}}º</span> </p> 
+          <p>Temperatuta minima: <span>{{weather.main.temp_min}}º</span> </p> 
+          <p>Humedad: <span>{{weather.main.humidity}}º</span> </p> 
+          <p>Presion: <span>{{weather.main.pressure}}HP</span> </p> 
+          <p>Cielo: <span>{{weather.weather[0].description}}</span> </p> 
+      </div>
+    </div>
+  </div>

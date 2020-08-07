@@ -1,0 +1,15 @@
+h1, h2{
+    margin-left: 100px;
+    color: rgb(103, 103, 241);
+    text-transform: uppercase;
+}
+p{
+    font-weight: bold;
+}
+.row{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-evenly;   
+    
+}
